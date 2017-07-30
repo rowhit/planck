@@ -244,8 +244,7 @@
                                     {:static-fns true})
                                   (when fn-invoke-direct
                                     {:fn-invoke-direct true})))
-    ;; TODO hook this back in
-    #_(deps/index-foreign-libs opts)
+    (deps/index-foreign-libs opts)
     (deps/index-js-libs)
     (let [index @deps/js-lib-index]
       (swap! st assoc :js-dependency-index (into index

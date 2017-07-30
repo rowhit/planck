@@ -67,6 +67,14 @@
         index
         (js/PLANCK_LOAD_DEPS_CLJS_FILES)))))
 
+(defn index-foreign-libs
+  "Indexes a compiler options map containing a :foreign-libs spec, swapping
+  the result into the foreign libs index."
+  [deps-map]
+  (->> deps-map
+    :foreign-libs
+    (vswap! js-lib-index add-js-libs)))
+
 (defn js-lib?
   "Returns true if the argument is a js lib."
   [dep]
